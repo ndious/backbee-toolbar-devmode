@@ -28,8 +28,16 @@ Before the toolbar-devmode cmd :
 Don't forget to update your remote folder :
 * for backbee
 ```bash
+cd /path/to/your/project/backbee
 git remote add upstream https://github.com/backbee/BackBee.git
 git remote set-url origin git@github.com:{github-fork-namespace}/BackBee.git
+git fetch upstream
+```
+* for toolbar
+```bash
+cd /path/to/your/project/bundle/toolbar-bundle
+git remote add upstream https://github.com/backbee/ToolbarBundle.git
+git remote set-url origin git@github.com:{github-fork-namespace}/ToolbarBundle.git
 git fetch upstream
 ```
 
