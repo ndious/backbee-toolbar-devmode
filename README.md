@@ -1,6 +1,19 @@
 # backbee-toolbar-devmode
 
 ## Use
+### install
+```bash
+toolbar-devmode install /path/to/your/project
+```
+
+### update
+```bash
+toolbar-devmode update /path/to/your/project
+```
+
+/path/to/your/project is optional if the script is in the project path
+
+## Complete toolbar-bundle development environment Install
 
 Create backbee project with the following command
 ```bash
@@ -12,17 +25,10 @@ On the question :
 reply :
 > n
 
-use the toolbar-devmode cmd
+Run toolbar-devmode cmd:
 ```bash
 toolbar-devmode install /path/to/your/project
 ```
-
-before a composer update
-```bash
-toolbar-devmode update /path/to/your/project
-```
-
-/path/to/your/project is optional if the script is in the project path
 
 Before the toolbar-devmode cmd :
 * backbee core php will be available in the folder /path/to/your/project/backbee
@@ -44,3 +50,11 @@ git remote set-url origin git@github.com:{github-fork-namespace}/ToolbarBundle.g
 git fetch upstream
 ```
 
+To finish get corejs projet:
+```bash
+cd /path/to/your/project/bundle/toolbar-bundle/Resources/toolbar
+git clone git@github.com:{github-fork-namespace}/BbCoreJs.git .
+git remote add upstream https://github.com/backbee/BbCoreJs.git
+git fetch upstream
+```
+And follow js dependencies installation in [this page](https://github.com/backbee/BbCoreJs)
