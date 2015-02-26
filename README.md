@@ -30,7 +30,7 @@ Run toolbar-devmode cmd:
 toolbar-devmode install /path/to/your/project
 ```
 
-Before the toolbar-devmode cmd :
+After the toolbar-devmode cmd :
 * backbee core php will be available in the folder /path/to/your/project/backbee
 * toolbar-bundle core php will be available in the folder /path/to/your/project/bundle/toolbar-bundle
  
