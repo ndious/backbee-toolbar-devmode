@@ -1,0 +1,60 @@
+#!/usr/bin/php
+
+<?php
+
+if ($argv[1] !== 'install' && $argv[1] !== 'update') {
+    echo 'toolbar-devmod accept only install or update method' . "\n\n";
+    return;
+}
+
+$path = __DIR__;
+
+if (array_key_exists(2, $argv)) {
+    if (!file_exists($argv[2])) {
+        echo 'Projet path not found' . "\n\n";
+        return;
+    }
+    $path = realpath($argv[2]);
+}
+
+if ($argv[1] === 'install') {
+    echo install($path);
+} else {
+    echo update($path);
+}
+
+function install($path)
+{
+    require($path . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php');
+    $vendor = $path . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'backbee';
+
+    if (!file_exists($path . DIRECTORY_SEPARATOR . 'backbee')) {
+        BackBee\Utils\File\Dir::copy($vendor . DIRECTORY_SEPARATOR . 'backbee', $path . DIRECTORY_SEPARATOR . 'backbee', 0775);
+    }
+    if (!file_exists($path . DIRECTORY_SEPARATOR . 'bundle' . DIRECTORY_SEPARATOR . 'toolbar-bundle')) {
+        BackBee\Utils\File\Dir::copy($vendor . DIRECTORY_SEPARATOR . 'toolbar-bundle', $path . DIRECTORY_SEPARATOR . 'bundle' . DIRECTORY_SEPARATOR . 'toolbar-bundle', 0775);
+    }
+    update($path);
+
+    return 'dev environment installed' . "\n";
+}
+
+function update($path)
+{
+    $autoload = implode([$path, 'vendor', 'composer', 'autoload_psr4.php'], DIRECTORY_SEPARATOR);
+    $lines = file($autoload);
+    foreach ($lines as $line_number => $line) {
+        if (!strpos($line, '\'BackBee\\\\\'') && !strpos($line, '\'BackBee\\\\Bundle\\\\ToolbarBundle\\\\\'')) {
+            continue;
+        }
+        if (strpos($line, '\'BackBee\\\\\'')) {
+            $lines[$line_number] = '    \'BackBee\\\\\' => array($baseDir . \'/backbee\'),' . "\n";
+        }
+        if (strpos($line, '\'BackBee\\\\Bundle\\\\ToolbarBundle\\\\\'')) {
+            $lines[$line_number] = '    \'BackBee\\\\Bundle\\\\ToolbarBundle\\\\\' => array($baseDir . \'/bundle/toolbar-bundle\'),' . "\n";
+        }
+    }
+    file_put_contents($autoload, implode($lines, ''));
+
+    return 'dev environment updated' . "\n";
+}
