@@ -34,7 +34,7 @@ Before the toolbar-devmode cmd :
 * backbee core php will be available in the folder /path/to/your/project/backbee
 * toolbar-bundle core php will be available in the folder /path/to/your/project/bundle/toolbar-bundle
  
-Don't forget to update your remote folder :
+Don't forget to update your remote folder if is necessary :
 * for backbee
 ```bash
 cd /path/to/your/project/backbee
