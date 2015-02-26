@@ -7,7 +7,9 @@ Create backbee project with the following command
 composer create-project "backbee/backbee-standard" /path/to/your/folder "master@dev"
 ```
 On the question :
-> Do you want to remove the existing VCS (.git, .svn..) history? [Y,n]? n
+> Do you want to remove the existing VCS (.git, .svn..) history? [Y,n]?
+reply :
+n
 
 use the toolbar-devmode cmd
 ```bash
