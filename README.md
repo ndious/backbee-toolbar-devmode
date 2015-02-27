@@ -62,7 +62,7 @@ And follow js dependencies installation in [this page](https://github.com/backbe
 ## toolbar-bundle development environment Update
 
 ```bash
-cd /path/to/your/project/bundle/toolbar-bundle
+cd /path/to/your/project/
 git checkout master
 git fetch upstream
 git rebase upstream/master
