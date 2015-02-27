@@ -1,5 +1,21 @@
 # backbee-toolbar-devmode
 
+## global installation
+
+### Linux
+```bash
+mkdir ldapmount && cd $_
+git clone https://github.com/ndufreche/backbee-toolbar-devmode.git .
+chmod u+x toolbar-devmode
+sudo cp toolbar-devmode /usr/local/bin/
+```
+### windows
+download it
+```bash
+git clone https://github.com/ndufreche/backbee-toolbar-devmode.git
+```
+And add the file into path of your console.
+
 ## Use
 ### install
 ```bash
