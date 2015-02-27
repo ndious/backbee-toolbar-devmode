@@ -58,3 +58,33 @@ git remote add upstream https://github.com/backbee/BbCoreJs.git
 git fetch upstream
 ```
 And follow js dependencies installation in [this page](https://github.com/backbee/BbCoreJs)
+
+## toolbar-bundle development environment Update
+
+```bash
+cd /path/to/your/project/bundle/toolbar-bundle
+git checkout master
+git fetch upstream
+git rebase upstream/master
+composer update
+```
+
+If there is an update of backbee or toolbar-bundle update manually your repository
+```bash
+git checkout master
+git fetch upstream
+git rebase upstream/master
+```
+
+If you are working on a branch, rebase-it
+```bash
+git checkout {working-branch}
+git rebase master
+```
+
+And run the toolbar-bundle update cmd
+```bash
+toolbar-devmode update /path/to/your/project
+```
+
+
