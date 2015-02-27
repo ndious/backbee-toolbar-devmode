@@ -15,6 +15,7 @@ download it
 git clone https://github.com/ndufreche/backbee-toolbar-devmode.git
 ```
 And add the file into path of your console.
+
 [how to do this](http://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/)
 
 ## Use
