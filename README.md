@@ -4,7 +4,7 @@
 
 ### Linux
 ```bash
-mkdir ldapmount && cd $_
+mkdir backbee-toolbar-devmode && cd $_
 git clone https://github.com/ndufreche/backbee-toolbar-devmode.git .
 chmod u+x toolbar-devmode
 sudo cp toolbar-devmode /usr/local/bin/
